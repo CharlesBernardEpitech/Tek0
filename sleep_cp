@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for (( i = 0; i < 500; i++ )); do
+	echo "Nombre de compilations: $i"
+	make
+	error=`echo $?`
+	if [ $error -eq 0 ]; then
+		sleep 2m
+		clear
+		make re
+	elif [ $error -eq 2 ]; then
+		sleep 1m
+		clear
+		make
+	fi
+done

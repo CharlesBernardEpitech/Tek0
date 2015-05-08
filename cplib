@@ -1,0 +1,11 @@
+#!/bin/sh
+
+hrep=/home/marie-_j/lib
+
+drep=$(pwd)
+
+make -C /home/marie-_j/lib $1
+
+cp /home/marie-_j/lib/libmy.a ./
+
+echo "Copie de libmy.a de $hrep à $drep"

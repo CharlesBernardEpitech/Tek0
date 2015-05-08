@@ -1,0 +1,3 @@
+#!/bin/sh
+
+git clone git@git.epitech.eu:/marie-_j/$1

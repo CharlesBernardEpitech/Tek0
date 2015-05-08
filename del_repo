@@ -1,0 +1,3 @@
+#!/bin/sh
+
+blih repository delete $1

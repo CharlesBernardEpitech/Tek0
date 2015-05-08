@@ -1,0 +1,8 @@
+#!/bin/sh
+
+wget http://formation-debian.via.ecp.fr/fichiers-config/zshrc
+wget http://formation-debian.via.ecp.fr/fichiers-config/zshenv
+wget http://formation-debian.via.ecp.fr/fichiers-config/zlogin
+wget http://formation-debian.via.ecp.fr/fichiers-config/zlogout
+wget http://formation-debian.via.ecp.fr/fichiers-config/dir_colors
+sudo mv zshrc zshenv zlogin zlogout dir_colors /etc/zsh

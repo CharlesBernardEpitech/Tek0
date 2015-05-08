@@ -1,0 +1,28 @@
+#!/bin/sh
+
+if [ $1 = "u" ] && [ -n $3 ]; then
+
+	echo "Custom mode for $3 start"
+
+	echo " "
+	blih repository create $2
+	blih repository setacl $2 $3 rw
+	blih repository create $2
+
+elif [ -z $1 ] || [ $1 != "u" ]; then
+
+	echo "Custom mode fail"
+
+	echo "Regular mode start"
+
+	echo "Regular mode for ramassage-tek"
+
+	echo " "
+	blih repository create $2
+	blih repository setacl $2 ramassage-tek r
+
+	echo "Droit de lecture attribué à ramassage-tek"
+
+	echo "ramassage-tek:r"
+	git clone git@git.epitech.eu:/marie-_j/$2
+fi
