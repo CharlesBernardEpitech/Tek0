@@ -12,11 +12,22 @@ echo "RM	= rm -f" >> Makefile
 
 echo "" >> Makefile
 
+echo 'Flags de vérif ?'
+
+read fvr
+
+if [ fvr == oui ]; then
+
 echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
 echo 'CFLAGS  += -ansi -pedantic' >> Makefile
 echo 'CFLAGS  += -I.' >> Makefile
 
+fi
+
 echo "" >> Makefile
+if [ lib == oui ]; then
+    
+fi
 
 echo "FLIB	= -lmy -L./" >> Makefile
 

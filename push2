@@ -12,6 +12,8 @@ drep=$(pwd)
 
 # cd ~/rendu/$1
 
+rm *~
+
 cd $drep
 
 git add --all

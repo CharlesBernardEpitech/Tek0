@@ -26,3 +26,9 @@ elif [ -z $1 ] || [ $1 != "u" ]; then
 	echo "ramassage-tek:r"
 	git clone git@git.epitech.eu:/marie-_j/$2
 fi
+
+echo "$2" >> ~/bin/Rep
+
+cd ~/bin
+
+./push2
