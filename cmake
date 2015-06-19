@@ -16,7 +16,7 @@ echo 'Flags de vérif ?'
 
 read fvr
 
-if [ fvr == oui ]; then
+if [ $fvr = "oui" ]; then
 
 echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
 echo 'CFLAGS  += -ansi -pedantic' >> Makefile
@@ -25,11 +25,11 @@ echo 'CFLAGS  += -I.' >> Makefile
 fi
 
 echo "" >> Makefile
-if [ lib == oui ]; then
-    
-fi
-
-echo "FLIB	= -lmy -L./" >> Makefile
+# if [ $lib == "o" ]; then
+  
+# echo "FLIB	= -lmy -L./" >> Makefile
+  
+# fi
 
 echo "" >> Makefile
 
@@ -60,9 +60,7 @@ echo "" >> Makefile
 
 echo '$(NAME): $(OBJ)' >> Makefile
 
-echo '	$(CC) -c $(SRC)' >> Makefile
-echo '	make -C ./lib all' >> Makefile
-echo	'	$(CC) $(OBJ) -o $(NAME) $(FLIB)' >> Makefile
+echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
 
 echo "" >> Makefile
 
@@ -70,27 +68,27 @@ echo 'clean:
 ' >> Makefile
 
 echo '	$(RM) $(OBJS)' >> Makefile
-echo '	make -C ./lib clean' >> Makefile
+# echo '	make -C ./lib clean' >> Makefile
 
 echo "" >> Makefile
 
 echo 'fclean: clean' >> Makefile
-echo '	make -C ./lib fclean' >> Makefile
+# echo '	make -C ./lib fclean' >> Makefile
 echo '	$(RM) $(NAME)' >> Makefile
 
 
 echo "" >> Makefile
 
 echo 're: fclean all' >> Makefile
-echo '	make -C ./lib re' >> Makefile
+# echo '	make -C ./lib re' >> Makefile
 
 echo "" >> Makefile
 
 echo '.PHONY: all clean fclean re' >> Makefile
-echo '	make -C ./lib .PHONY' >> Makefile
+# echo '	make -C ./lib .PHONY' >> Makefile
 
-cp -r ~/lib/ ./
+# cp -r ~/lib/ ./
 
-make -C ./lib re
+# make -C ./lib re
 
-cp ./lib/libmy.a ./
+# cp ./lib/libmy.a ./

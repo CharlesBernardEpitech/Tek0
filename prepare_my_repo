@@ -11,8 +11,6 @@ if [ $1 = "u" ] && [ -n $3 ]; then
 
 elif [ -z $1 ] || [ $1 != "u" ]; then
 
-	echo "Custom mode fail"
-
 	echo "Regular mode start"
 
 	echo "Regular mode for ramassage-tek"
