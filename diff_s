@@ -1,0 +1,26 @@
+#!/bin/sh
+cd ~/
+
+mkdir Sujet_Check
+
+cd Sujet_Check
+
+wget http://intra.epitech.eu/module/2014/B-ADM-242/PAR-2-1/acti-183626/project/file/synthese_Tech1_2015_projTester.pdf
+
+mv synthese_Tech1_2015_projTester.pdf synthese_Tech1_2015_projTester.old.pdf
+
+sleep 15m
+
+wget https://intra.epitech.eu/module/2014/B-ADM-242/PAR-2-1/acti-183626/project/file/synthese_Tech1_2015_projTester.pdf
+
+cmp synthese_Tech1_2015_projTester.old.pdf synthese_Tech1_2015_projTester.pdf
+
+if [ $? -eq 0 ]; then
+	echo 'Sujet non modifié'
+
+else
+	echo 'Sujet modifié'
+
+	diff synthese_Tech1_2015_projTester.old.pdf synthese_Tech1_2015_projTester.pdf
+
+fi
