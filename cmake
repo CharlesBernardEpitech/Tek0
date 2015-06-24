@@ -21,11 +21,11 @@ if [ $fvr = "oui" ]; then
 echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
 echo 'CFLAGS  += -ansi -pedantic' >> Makefile
 echo 'CFLAGS  += -I.' >> Makefile
-
+cmpf()
 fi
 
 echo "" >> Makefile
-# if [ $lib == "o" ]; then
+# if [ $lib = "oui" ]; then
   
 # echo "FLIB	= -lmy -L./" >> Makefile
   
@@ -92,3 +92,59 @@ echo '.PHONY: all clean fclean re' >> Makefile
 # make -C ./lib re
 
 # cp ./lib/libmy.a ./
+
+cmpf () {
+
+echo "" >> Makefile
+
+echo "Source :"
+
+read sr
+
+echo "SRC	= $sr " >> Makefile
+
+echo "" >> Makefile
+
+
+echo 'OBJ	= $(SRC:.c=.o)' >> Makefile
+
+echo "" >> Makefile
+
+echo "Nom du binaire"
+
+read namb
+
+echo "NAME	= $namb" >> Makefile
+
+echo "" >> Makefile
+
+echo 'all: $(NAME)' >> Makefile
+
+echo "" >> Makefile
+
+echo '$(NAME): $(OBJ)' >> Makefile
+
+echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
+
+echo "" >> Makefile
+
+echo 'clean:
+' >> Makefile
+
+echo '	$(RM) $(OBJS)' >> Makefile
+
+echo "" >> Makefile
+
+echo 'fclean: clean' >> Makefile
+
+echo '	$(RM) $(NAME)' >> Makefile
+
+
+echo "" >> Makefile
+
+echo 're: fclean all' >> Makefile
+
+echo "" >> Makefile
+
+echo '.PHONY: all clean fclean re' >> Makefile
+}
