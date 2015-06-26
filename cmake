@@ -16,15 +16,10 @@ echo 'Flags de vérif ?'
 
 read fvr
 
-if [ $fvr = "oui" ]; then
-
 echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
 echo 'CFLAGS  += -ansi -pedantic' >> Makefile
 echo 'CFLAGS  += -I.' >> Makefile
-cmpf()
-fi
 
-echo "" >> Makefile
 # if [ $lib = "oui" ]; then
   
 # echo "FLIB	= -lmy -L./" >> Makefile
@@ -64,8 +59,7 @@ echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
 
 echo "" >> Makefile
 
-echo 'clean:
-' >> Makefile
+echo 'clean:' >> Makefile
 
 echo '	$(RM) $(OBJS)' >> Makefile
 # echo '	make -C ./lib clean' >> Makefile
