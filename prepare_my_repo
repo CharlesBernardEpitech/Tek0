@@ -24,14 +24,6 @@ elif [ -z $1 ] || [ $1 != "u" ] && [ $1 != "n" ]; then
     echo "ramassage-tek:r"
     git clone git@git.epitech.eu:/marie-_j/$2
 
-elif [ -z $1 ] || [ $1 != "n" ]; then
-
-    echo "No rights mode start"
-
-    echo ""
-
-    blih repository create $2
-    git clone git@git.epitech.eu:/marie-_j/$2
 fi
 
 echo "$2" >> ~/bin/Rep
