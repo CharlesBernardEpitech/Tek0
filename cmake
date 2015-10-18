@@ -16,26 +16,29 @@ echo 'Flags de vérif ?'
 
 read fvr
 
-echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
-echo 'CFLAGS  += -ansi -pedantic' >> Makefile
-echo 'CFLAGS  += -I.' >> Makefile
+if [ $fvr = "o" ]
+then
+
+    echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
+    echo 'CFLAGS  += -ansi -pedantic' >> Makefile
+    echo 'CFLAGS  += -I.' >> Makefile
+    echo "" >> Makefile
+
+fi
 
 # if [ $lib = "oui" ]; then
-  
-# echo "FLIB	= -lmy -L./" >> Makefile
-  
-# fi
 
-echo "" >> Makefile
+# echo "FLIB	= -lmy -L./" >> Makefile
+
+# fi
 
 echo "Source :"
 
 read sr
 
-echo "SRC	= $sr " >> Makefile
+echo "SRC	= $sr" >> Makefile
 
 echo "" >> Makefile
-
 
 echo 'OBJ	= $(SRC:.c=.o)' >> Makefile
 
@@ -55,7 +58,13 @@ echo "" >> Makefile
 
 echo '$(NAME): $(OBJ)' >> Makefile
 
-echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
+if [ $fvr = "o" ]
+then
+    echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
+else
+    echo	'	$(CC) $(OBJ) -o $(NAME)' >> Makefile
+
+fi
 
 echo "" >> Makefile
 
@@ -89,40 +98,40 @@ echo '.PHONY: all clean fclean re' >> Makefile
 
 cmpf () {
 
-echo "" >> Makefile
+    echo "" >> Makefile
 
-echo "Source :"
+    echo "Source :"
 
-read sr
+    read sr
 
-echo "SRC	= $sr " >> Makefile
+    echo "SRC	= $sr " >> Makefile
 
-echo "" >> Makefile
+    echo "" >> Makefile
 
 
-echo 'OBJ	= $(SRC:.c=.o)' >> Makefile
+    echo 'OBJ	= $(SRC:.c=.o)' >> Makefile
 
-echo "" >> Makefile
+    echo "" >> Makefile
 
-echo "Nom du binaire"
+    echo "Nom du binaire"
 
-read namb
+    read namb
 
-echo "NAME	= $namb" >> Makefile
+    echo "NAME	= $namb" >> Makefile
 
-echo "" >> Makefile
+    echo "" >> Makefile
 
-echo 'all: $(NAME)' >> Makefile
+    echo 'all: $(NAME)' >> Makefile
 
-echo "" >> Makefile
+    echo "" >> Makefile
 
-echo '$(NAME): $(OBJ)' >> Makefile
+    echo '$(NAME): $(OBJ)' >> Makefile
 
-echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
+    echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
 
-echo "" >> Makefile
+    echo "" >> Makefile
 
-echo 'clean:
+    echo 'clean:
 ' >> Makefile
 
 echo '	$(RM) $(OBJS)' >> Makefile
