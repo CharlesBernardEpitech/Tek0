@@ -70,7 +70,7 @@ echo "" >> Makefile
 
 echo 'clean:' >> Makefile
 
-echo '	$(RM) $(OBJS)' >> Makefile
+echo '	$(RM) $(OBJ)' >> Makefile
 # echo '	make -C ./lib clean' >> Makefile
 
 echo "" >> Makefile
