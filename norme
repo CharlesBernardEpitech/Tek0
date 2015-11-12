@@ -88,7 +88,7 @@ function dot_h() # verifie les fichier header (.h)
 	check_macro $HFILE
 	nb_col $HFILE
 	last_carac $HFILE
-	# check_header $HFILE
+	check_header $HFILE
     done
 }
 
@@ -646,7 +646,7 @@ find $PWD -name "*.c" | grep -v \# > $TMP
 for SFILE in `cat $TMP`; do
     echo -e "Scan : "$BOLD"`basename $SFILE`"$WHITE
     nb_functions $SFILE
-    # check_header $SFILE
+    check_header $SFILE
     nb_col $SFILE
     last_carac $SFILE
     double_line $SFILE
@@ -658,7 +658,7 @@ for SFILE in `cat $TMP`; do
     check_include $SFILE
     check_declaration $SFILE
     check_multi-instruction $SFILE
-    check_tab_on_declaraction $SFILE
+#    check_tab_on_declaraction $SFILE
     check_space_functions $SFILE
     check_line_declaration $SFILE
     check_var_name $SFILE
