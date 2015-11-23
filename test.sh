@@ -6,4 +6,8 @@
 
 read sr
 
-echo $sr
+
+if [ $sr="oui" ] || [ $sr='o' ]
+then
+    echo $sr
+fi
