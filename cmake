@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 make_n() {
     echo "CC	= gcc" >> Makefile
@@ -49,7 +49,7 @@ make_n() {
 
     echo '$(NAME): $(OBJ)' >> Makefile
 
-    if [ $fvr = "o" ]
+    if [ "$fvr" = 'o' ] || [ "$fvr" = "oui" ]
     then
 	echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
     else
@@ -145,7 +145,7 @@ cmol () {
     echo '$(NAME): $(OBJ)' >> Makefile
     echo "	make -C $dlib" >> Makefile
 
-    if [ $fvr='o' ] || [ $fvr="oui" ]
+    if [ $fvr = "o" ] || [ $fvr = "oui" ]
     then
 	echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS) $(LFLAGS)' >> Makefile
     else
@@ -182,14 +182,12 @@ echo "## Makefile by cmake (Thedusk)" >> Makefile
 
 echo "" >> Makefile
 
-echo 'Makefile avec lib : oui / non ou y / n'
+echo 'Makefile avec lib : y / n'
 
 read lib
 
-if [ $lib="oui" ] || [ $lib='y' ]
-then
+if [ $lib = "o" ] || $lib = "oui" ]; then
     cmol
-elif [ $lib="non" ] || [ $lib='n' ]
-then
+else
     make_n
 fi

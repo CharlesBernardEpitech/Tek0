@@ -6,8 +6,10 @@
 
 read sr
 
-
-if [ $sr="oui" ] || [ $sr='o' ]
+if [ "$sr" = "y" ]
 then
     echo $sr
+elif [ "$sr" = "n" ]
+then
+    echo 'YOLO'
 fi
