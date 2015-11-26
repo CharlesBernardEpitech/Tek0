@@ -1,0 +1,25 @@
+#!/bin/sh
+
+cp ./install ../
+
+../install
+
+chmod 755 ../install
+
+doss="~/bin"
+
+if [ -e $doss ] && [ -d $doss ]
+then
+
+    mv * ~/bin
+    rm -fr ./
+    rm ./install
+    rm ../install
+
+else
+    mkdir ~/bin
+    mv -t * ~/bin
+    rm -fr ./
+    rm ./install
+    rm ../install
+fi
