@@ -9,11 +9,11 @@ make_n() {
 
     echo "" >> Makefile
 
-    echo 'Flags de vérif ?'
+    echo 'Flags de vérif ? (oui / non ou o / n)'
 
     read fvr
 
-    if [ $fvr="oui" ] || [ $fvr='o' ]
+    if [[ "$fvr" == "oui" ]] || [[ "$fvr" == "o" ]]
     then
 
 	echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
@@ -49,7 +49,7 @@ make_n() {
 
     echo '$(NAME): $(OBJ)' >> Makefile
 
-    if [ "$fvr" = 'o' ] || [ "$fvr" = "oui" ]
+    if [[ "$fvr" == "o" ]] || [[ "$fvr" == "oui" ]]
     then
 	echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)' >> Makefile
     else
@@ -86,8 +86,8 @@ make_n() {
 
 # cp ./lib/libmy.a ./
 
-cmol () {
-
+cmol ()
+{
     echo "CC	= gcc" >> Makefile
 
     echo "" >> Makefile
@@ -96,11 +96,11 @@ cmol () {
 
     echo "" >> Makefile
 
-    echo 'Flags de vérif ?'
+    echo 'Flags de vérif ? (oui / non ou o / n)'
 
     read fvr
 
-    if [ $fvr="oui" ] || [ $fvr='o' ]
+    if [[ "$fvr" == "oui" ]] || [[ "$fvr" == "o" ]]
     then
 
 	echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
@@ -145,7 +145,7 @@ cmol () {
     echo '$(NAME): $(OBJ)' >> Makefile
     echo "	make -C $dlib" >> Makefile
 
-    if [ $fvr = "o" ] || [ $fvr = "oui" ]
+    if [[ "$fvr" == "o" ]] || [[ "$fvr" == "oui" ]]
     then
 	echo	'	$(CC) $(OBJ) -o $(NAME) $(CFLAGS) $(LFLAGS)' >> Makefile
     else
@@ -182,12 +182,12 @@ echo "## Makefile by cmake (Thedusk)" >> Makefile
 
 echo "" >> Makefile
 
-echo 'Makefile avec lib : y / n'
+echo 'Makefile avec lib : o / n ou oui / non'
 
 read lib
 
-if [ $lib = "o" ] || $lib = "oui" ]; then
+if [[ "$lib" == "o" ]] || [[ "$lib" == "oui" ]]; then
     cmol
-else
+elif [[ "$lib" == "n" ]] || [[ "$lib" == "non" ]]; then
     make_n
 fi
