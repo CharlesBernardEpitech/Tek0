@@ -25,9 +25,10 @@ make_n() {
 
     echo "Source :"
 
-    read sr
+    fdc
+    echo
 
-    echo "SRC	= $sr" >> Makefile
+    fdc >> Makefile
 
     echo "" >> Makefile
 
@@ -120,9 +121,10 @@ cmol ()
 
     echo "Source :"
 
-    read sr
+    fdc
+    echo
 
-    echo "SRC	= $sr" >> Makefile
+    fdc >> Makefile
 
     echo "" >> Makefile
 
