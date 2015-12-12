@@ -1,24 +1,23 @@
 #!/bin/sh
 ## push.sh for push in /home/marie-_j/rendu
-## 
+##
 ## Made by jean-denis marie-sainte
 ## Login   <marie-_j@epitech.net>
-## 
+##
 ## Started on  Mon Oct 20 15:09:43 2014 jean-denis marie-sainte
-## Last update Sun Jan 11 17:11:43 2015 jean-denis marie-sainte
+## Last update Thu Dec 10 15:57:42 2015 Jean-Denis Marie-Sainte
 ##
 
-drep=$(pwd)
-
+#drep=$(pwd)
 # cd ~/rendu/$1
 
 find -type f \( -name "*~" -o -name "#*#" -o  -name "*.o" \) -delete
 
-cd $drep
+#cd $drep
 
 git add --all
 
-echo 'Commit'
+echo 'Commit :'
 
 read a
 
