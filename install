@@ -1,13 +1,7 @@
 #!/bin/sh
 
-cp ./install ../
-
-chmod 755 ../install
-
-../install
-
 mv * ~/bin
-rm -fr ./
+echo "Copie des scripts dans le dossier bin"
 rm ~/bin/install
-rm ./install
-rm ../install
+echo "Dossier Tek0 delete"
+rm -fr ./
