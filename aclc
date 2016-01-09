@@ -1,7 +1,5 @@
 #!/bin/sh
 
 blih repository setacl $1 $2 $3
-echo ''
 echo 'Droits acl'
-echo ''
 blih repository getacl $1

@@ -3,5 +3,5 @@
 git add --all
 echo "Commit :"
 read cmt
-git commit -am "cmt"
+git commit -am "$cmt"
 git push origin $1
