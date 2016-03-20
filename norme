@@ -11,7 +11,7 @@
 ##   variables editables        ##
 ##################################
 
-USERNAME= # si votre username git est different de la variable #USER
+USERNAME= Jean-Denis Marie-Sainte
 
 ##################################
 ##   declaration des couleurs   ##
@@ -121,7 +121,7 @@ function check_makefile() # verifie la norme du Makefile
     echo -e $WHITE"Scan : "$BOLD"Makefile"$WHITE
     if [[ ! -f Makefile ]]; then
         echo -e $BRED"Makefile not found"
-	return 
+	return
     fi
     echo -e "##\n" > $TMP3
     local NAME=`cat Makefile | head -n 4| tail -n 1 | sed "s/## Made by //"`
@@ -313,7 +313,7 @@ function check_com() # verifie la presence de commentaires
     then
 	return
     fi
-    
+
     tail -n +10 $1 | sed "s/['\"].*['\"]//g" | grep -E "/\*" > $TMP6
     if [[ ! -z `cat $TMP6` ]]
     then
@@ -368,7 +368,7 @@ function double_line() # verifie les sauts de ligne inutiles
 {
     local RES=`pcregrep -Mn "^\n$^\n" $1`
     if [[ -z $RES ]]; then
-	return 
+	return
     fi
     N='\n'
     for INDEX in `echo $RES | tr ':' '\n' | sed 's/ //g'`
@@ -476,7 +476,7 @@ function check_malloc() # verifie les mallocs
     then
 	return
     fi
-    
+
     cat $1 | grep -n malloc | grep -v if | grep -v NULL | grep -iv xmalloc | grep -v "||"> $TMP5
     if [[ `cat $TMP5` ]]; then
 	NBL=`cat $TMP5 |  awk '{print $1}' | sed 's/://g'`
@@ -501,7 +501,7 @@ function check_var_name() # verifie le noms des variables
     while [[ $NB -ne $NBF ]]; do
 	NB=$((NB + 1))
 	if [[ `head $1 -n $NB | tail -n1 | grep -v '#' | grep "\*"| grep -v "g_"` ]]; then
-	    head $1 -n $NB | tail -n -1 
+	    head $1 -n $NB | tail -n -1
 	    print_error $1 "ligne $NB, il manque \"g_\" au nom de la variable"
 	    NB_ERROR=$((NB_ERROR + 1))
 	fi
@@ -667,7 +667,7 @@ for SFILE in `cat $TMP`; do
 done
 
 dot_h
-allowed_functions 
+allowed_functions
 
 if [[ $CM -eq 1 ]]; then
     check_makefile
