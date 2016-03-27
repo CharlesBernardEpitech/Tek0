@@ -5,7 +5,7 @@
 ## Login   <marie-_j@epitech.net>
 ##
 ## Started on  Mon Oct 20 15:09:43 2014 jean-denis marie-sainte
-## Last update Sun Mar 20 17:06:05 2016 Jean-Denis Marie-Sainte
+## Last update Sun Mar 27 11:44:50 2016 Jean-Denis Marie-Sainte
 ##
 
 #drep=$(pwd)
@@ -14,6 +14,8 @@
 find -type f \( -name "*~" -o -name "#*#" -o  -name "*.o" \) -delete
 
 #cd $drep
+
+git pull
 
 git add -A :/
 
