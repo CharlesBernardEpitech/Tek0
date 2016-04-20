@@ -17,7 +17,6 @@ make_n() {
     then
 
 	echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
-	echo 'CFLAGS  += -ansi -pedantic' >> Makefile
 	echo 'CFLAGS  += -I.' >> Makefile
 	echo "" >> Makefile
 
@@ -105,7 +104,6 @@ cmol ()
     then
 
 	echo 'CFLAGS  += -Wextra -Wall -Werror' >> Makefile
-	echo 'CFLAGS  += -ansi -pedantic' >> Makefile
 	echo 'CFLAGS  += -I.' >> Makefile
 	echo "" >> Makefile
 
